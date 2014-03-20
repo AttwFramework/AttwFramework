@@ -136,7 +136,7 @@
          * @return array
         */
         public static function getParams(){
-            return self::$params;
+            return ( count( self::$params ) > 0 ) ? self::$params : array();
         }
         
         /**
@@ -216,5 +216,31 @@
                     }
                 }
             }
+        }
+
+        /**
+         * Return the query strings from a URL
+         *
+         * @param string $url
+         * @return array Queries
+        */
+        public static function getQueryStrings( $url ){
+            $params = explode( '?', $url );
+
+            if( count( $params ) > 1 ){
+                $params = end( $params );
+                $relations = explode( '&', $params );
+
+                $queries = array();
+
+                foreach( $relations as $relation ){
+                    $camps = explode( '=', $relation );
+                    $queries[ $camps[0] ] = $camps[1];
+                }
+            }else{
+                $queries = array();
+            }
+
+            return $queries;
         }
     }

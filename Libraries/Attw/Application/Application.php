@@ -37,12 +37,14 @@
             $action = RoutingManager::getAction();
             $getParams = RoutingManager::getParams();
             
-            if( !class_exists( $controller ) || !method_exists( new $controller, $action ) ){
-                http_status( 404 );
-				require_once APP_ROOT . DS . 'Application' . DS . 'Configurations' . DS . 'Configurations' . DS . 'page_errors.php';
+            if( !class_exists( $controller ) ){
+                echo 'Controller not found: ' . $controller;
+            }
+            if( !method_exists( new $controller, $action ) ){
+                echo $action;
             }
 
-            $_GET = $getParams;
+            $_GET = array_merge( $getParams, RoutingManager::getQueryStrings( $_SERVER['REQUEST_URI'] ) );
             
             $controllerInstance = new $controller;
             $controllerInstance->{$action}();
