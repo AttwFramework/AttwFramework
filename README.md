@@ -17,6 +17,8 @@ To load a model, use the method: ``Attw\Controller\AbstractController::loadModel
 ###Load views
 To load views, use the method: ``Attw\Controller\AbstractController::loadView( string View )``
 
+
+###Example
 ```php
 namespace MVC\Controller;
 
