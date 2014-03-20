@@ -4,11 +4,58 @@ AttwFramework is a MVC micro framework to simple projects developments.
 
 ##Model
 
+###Nomenclature
+All controllers must inciate with upper letter
+
+###Storage
+To use storage method, use the property ``Attw\Model\AbstractModel::$storage``
+
+####Example:
+```php
+namespace MVC\Model;
+
+use Attw\Model\AbstractModel;
+
+class Message extends AbstractModel{
+	public function save( $message ){
+		$stmt = $this->storage->insert( 'messages', [ 'message' => $message ] );
+		$stmt->execute();
+	}
+}
+```
+
+###Entities
+The entity must have a property called 'table' with table name in database and others properties that will be the columns (visiblity: ``protected``).
+
+```php
+namespace MVC\Model\Entity;
+
+use Attw\Entity
+```
+
+####Example:
+```php
+namespace MVC\Model\Entity;
+
+use Attw\Entity\AbstractEntity;
+
+class Message extends AbstractEntity{
+	protected $table = 'messages';
+
+	/**
+	 * @key PRIMARY KEY
+	*/
+	protected $id;
+
+	protected $name;
+	protected $user;
+}
+```
 
 ##Controllers
 Default action: ``index``
 
-###Controllers nomenclature
+###Nomenclature
 All controllers must inciate with upper letter
 
 ###Load models
@@ -18,7 +65,7 @@ To load a model, use the method: ``Attw\Controller\AbstractController::loadModel
 To load views, use the method: ``Attw\Controller\AbstractController::loadView( string View )``
 
 
-###Example
+##Example
 ```php
 namespace MVC\Controller;
 
