@@ -32,7 +32,7 @@
         }
 
         protected function constructSql(){
-        	$this->sql = sprintf( 'WHERE %s', ( is_array( $this->operations ) ? $this->operations : 
+        	$this->sql = sprintf( 'WHERE %s', ( !is_array( $this->operations ) ) ? $this->operations : 
                                                                                 new AndO( $this->operations ) );
         }
     }

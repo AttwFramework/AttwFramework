@@ -1,7 +1,5 @@
 <?php
-    namespace Autoloader\Autoloadable;
-    
-    interface iAutloadable{
+    interface iAutoloadable{
         /**
          * @return callable
          */

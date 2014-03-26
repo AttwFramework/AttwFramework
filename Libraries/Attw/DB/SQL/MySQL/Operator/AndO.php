@@ -28,25 +28,12 @@
 		const OPERATOR = 'AND';
 
 		private $a;
-		private $b;
 
-		public function __construct( $a, $b = null ){
+		public function __construct( array $a ){
 			$this->a = $a;
-			$this->b = $b;
 		}
 
 		protected function constructSql(){
-			$a = $this->a;
-			$b = $this->b;
-
-			if( is_array( $a ) ){
-				$this->sql = implode( ' AND ', $a );
-			}else{
-				if( !is_null( $b ) ){
-					$this->sql = sprintf( '%s AND %s', $a, $b );
-				}else{
-					throw new LogicException( 'If the first argument is\'t an array, second argument must not be null' );
-				}
-			}
+			$this->sql = implode( ' AND ', $this->a );
 		}
 	}

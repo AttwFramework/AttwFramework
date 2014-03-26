@@ -1,5 +1,5 @@
 <?php
-    define('ROOT',dirname(__FILE__));    
+    /*define('ROOT', dirname(__FILE__));    
     require 'AutoLoad_class.php';  
     $autoLoad = new AutoLoad();  
     $autoLoad->setPath(APP_ROOT);  
@@ -18,5 +18,27 @@
     }
     
     spl_autoload_register(array($autoLoad, 'loadApp'));
-    spl_autoload_register(array($autoLoad, 'loadCore'));
+    spl_autoload_register(array($autoLoad, 'loadCore'));*/
+
+    require_once LIBS . DS . 'Attw\Autoloader\Autoloader.php';
+    require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\iAutloadable.php';
+    require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\Application.php';
+    require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\Attw.php';
     
+    $libs = array(
+        'Smarty' => LIBS . DS . 'Smarty' . DS . 'libs' . DS . 'Smarty.class.php'
+    );
+    
+    foreach( $libs as $lib => $libDir ){
+        if( !file_exists( $libDir ) ){
+            throw new Exception( 'Library not found: ' . $lib );
+        }
+        
+        include_once $libDir;
+    }
+    
+    $autoloader = new Autoloader();
+    $application = new Application( APP );
+    $attw = new Attw( LIBS );
+    $autoloader->attach( $application );
+    $autoloader->attach( $attw );

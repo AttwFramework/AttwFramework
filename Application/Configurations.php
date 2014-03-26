@@ -45,6 +45,7 @@
 	 * Errors
     */
     Configs::add( 'ErrorsReporting', E_ALL | E_STRICT  );
+	Configs::add( 'PageErrors', array( '404' => 'http://localhost' ) );
 
     /**
      * Content types

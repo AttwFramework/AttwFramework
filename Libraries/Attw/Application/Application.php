@@ -23,6 +23,8 @@
     
     use Attw\HTTP\Request;
     use Attw\Router\RoutingManager;
+    use Attw\HTTP\Response;
+    use Attw\Config\Configs;
 
     class Application{
         const DEFAULT_CONTROLLER = 'Index';
@@ -37,15 +39,21 @@
             $action = RoutingManager::getAction();
             $getParams = RoutingManager::getParams();
             
-            if( !class_exists( $controller ) ){
-                echo 'Controller not found: ' . $controller;
-            }
-            if( !method_exists( new $controller, $action ) ){
-                echo $action;
+            if( !class_exists( $controller ) || !method_exists( new $controller, $action ) || is_null( $action ) ){
+                if( Configs::exists( 'PageErrors' ) ){
+                    $pages = Configs::get( 'PageErrors' );
+
+                    if( isset( $pages['404'] ) ){
+                        $response = new Response();
+                        $response->redirect( $pages['404'] );
+                    }
+                }else{
+                    throw new \Exception( 'Controller and/or action not found' );
+                }
             }
 
             $_GET = array_merge( $getParams, RoutingManager::getQueryStrings( $_SERVER['REQUEST_URI'] ) );
-            
+
             $controllerInstance = new $controller;
             $controllerInstance->{$action}();
         }

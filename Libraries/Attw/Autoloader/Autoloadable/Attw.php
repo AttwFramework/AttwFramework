@@ -1,5 +1,5 @@
 <?php
-    class Application implements iAutoloadable{
+    class Attw implements iAutoloadable{
         private $applicationPath;
         
         public function __construct( $path ){
