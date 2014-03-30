@@ -119,7 +119,7 @@
         */
         public function server( $propriety ){
             $server = ( object ) $this->server;
-            return $serve->{ $propriety };
+            return $server->{ $propriety };
         }
         
         /**
@@ -156,8 +156,8 @@
          * @return boolean
         */
         public function isAjax(){
-            return ( isset( $this->server()->HTTP_X_REQUESTED_WITH ) 
-                    && strtolower( $this->server()->HTTP_X_REQUESTED_WITH ) === self::AJAX_METHOD );
+            return ( isset( $this->server( 'HTTP_X_REQUESTED_WITH' ) ) 
+                    && strtolower( $this->server( 'HTTP_X_REQUESTED_WITH' ) ) === self::AJAX_METHOD );
         }
         
         /**
@@ -166,7 +166,7 @@
          * @return string
         */
         public function getMethod(){
-            return $this->server()->REQUEST_METHOD;
+            return $this->server( 'REQUEST_METHOD' );
         }
         
         /**
