@@ -117,12 +117,8 @@
             return $this;
         }
         
-        public function fetch( $type = null ){
-            if( is_null( $type ) ){
-                $type = PDO::FETCH_OBJ;
-            }
-
-            return $this->stmt->fetch( $type );
+        public function fetch(){
+            return $this->stmt->fetch();
         }
         
         public function fetchAll( $type = null ){

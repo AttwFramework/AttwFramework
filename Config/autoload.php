@@ -24,7 +24,7 @@
     require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\iAutloadable.php';
     require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\Application.php';
     require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\Attw.php';
-    
+   
     $libs = array(
         'Smarty' => LIBS . DS . 'Smarty' . DS . 'libs' . DS . 'Smarty.class.php'
     );

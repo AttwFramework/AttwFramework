@@ -59,13 +59,11 @@
         /**
          * Execute the statement
          *
-		 * @param array $bindParams
-		 * @throws Attw\DB\Exception\StatementException case fail
          * @return boolean
         */
         public function execute( array $bindParams = array() ){
             if( count( $bindParams ) > 0 ){
-                $this->executeBindParams = $bindParams;
+                $this->executeBindParams = array_merge( $this->executeBindParams, $bindParams );
             }
 
             try{
@@ -76,6 +74,23 @@
                 return $this->stmt->execute( $this->executeBindParams );
             }catch( PDOException $e ){
                 throw new StatementException( $e->getMessage() );
+            }
+        }
+        
+        /**
+         * Set the params to pass in \PDOStatement::execute()
+         *
+         * @param mixed
+        */
+        public function setBindParams(){
+            $params = func_get_args();
+            
+            foreach( $params as $key => $value ){
+                if( is_array( $value ) ){
+                    $this->executeBindParams = $value;
+                }else{
+                    $this->executeBindParams = array_merge( $this->executeBindParams, array( $key => $value ) );
+                }
             }
         }
 

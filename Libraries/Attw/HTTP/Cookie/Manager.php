@@ -1,4 +1,4 @@
-<?php  
+<?php 
     /**
      * Permission is hereby granted, free of charge, to any person obtaining a copy
      * of this software and associated documentation files (the "Software"), to deal
@@ -26,46 +26,40 @@
      * @since AttwFramework v1.0
     */
  
-    namespace Attw\DB\Storage;
+    namespace Attw\HTTP\Cookie;
+
+    use \UnexpectedValueException;
     
-    use Attw\DB\Storage\TransactionsInterface;
-
-    /**
-	 * Interface to storages
-	 *
-	 * @package FCodePHP.DB
-    */
-    interface StorageInterface extends TransactionsInterface{
-    	/**
-		 * To insert something
-		 *
-		 * @param string $storageLocal local to inert
-		 * @param array $data data to insert
-    	*/
-        public function insert( $storageLocal, array $data );
-
-        /**
-		 * To delete something
-		 *
-		 * @param string $storageLocal local to delete
-		 * @param array $where
-        */
-        public function delete( $storageLocal, array $where );
-
-        /**
-		 * To update something
-		 *
-		 * @param string $storageLocal local to update
-		 * @param array $data data to set
-		 * @param array $where
-        */
-        public function update( $storageLocal, array $data, array $where );
-
-        /**
-		 * To fetch something
-		 *
-		 * @param string $storageLocal local to update
-		 * @param string | array data to fetch
-        */
-        public function select( $storageLocal, $data = '*' );
+    class Cookies{
+        public function add( $name, $value = null, $expire = 0, $path = '/', $domain = null, $secure = false, $httponly = false ){
+            $this->cookies->attach( func_get_args() );
+            
+            setcookie( $nome, $value, $expire, $path, $domain, $secure, $httponly );
+        }
+        
+        public function read( $name ){
+            if( !$this->exists( $name ) ){
+                throw new UnexpectedValueException( sprintf( 'Cookie named %s doesn\'t exists', $name ) );
+            }
+            
+            return $_COOKIE[ $name ];
+        }
+        
+        public function del( $name ){
+            if( !$this->exists( $name ) ){
+                throw new UnexpectedValueException( sprintf( 'Cookie named %s doesn\'t exists', $name ) );
+            }
+            
+            setcookie( $name, null, time() - 3600 );
+        }
+        
+        public function delAll(){
+            foreach( $_COOKIE as $name => $value ){
+                $this->del( $name );
+            }
+        }
+        
+        public function exists( $name ){
+            return ( array_key_exists( $_COOKIE, $name ) );
+        }
     }
