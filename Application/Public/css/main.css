@@ -140,3 +140,15 @@ fieldset[disabled] .btn-default.active {
 .pre{
 	font-family: monospace;
 }
+
+.content .smarty-example{
+  background: #FFD800;
+  border: 1px solid black;
+  padding: 10px;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}

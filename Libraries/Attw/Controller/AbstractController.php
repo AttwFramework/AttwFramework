@@ -58,7 +58,7 @@
             $model_name = 'MVC\Model\\' . $model;
 
             if( !class_exists( $model_name ) ){
-                throw new RuntimeException( 'View not found: ' . $model_name );
+                throw new RuntimeException( 'Model not found: ' . $model_name );
             }
 
             $model_instance = new $model_name;
@@ -69,7 +69,7 @@
         /**
          * Instance a view
          *
-         * @param $view View name to instance
+         * @param string $view View name to instance
          * @throws \InvalidArgumentException case param $view is not a string
          * @throws \RuntimeException case view do not exists
          * @return instanceof $view

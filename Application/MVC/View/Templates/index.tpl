@@ -43,6 +43,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="smarty-example">
+				{$message}
+			</div>
 		</div>
 		<footer>
 			<div class="links">
