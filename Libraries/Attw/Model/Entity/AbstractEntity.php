@@ -26,7 +26,7 @@
      * @since AttwFramework v1.0
     */
  
-    namespace Attw\Entity;
+    namespace Attw\Model\Entity;
 
     use \RuntimeException;
     use Attw\Core\Object;
@@ -103,6 +103,19 @@
         public function getColumns(){
             $columns = get_object_vars( $this );
             unset( $columns['table'], $columns['fields'] );
+
+            $null = 0;
+
+            foreach( $columns as $value ){
+                if( is_null( $value ) ){
+                    $null++;
+                }
+            }
+
+            if( $null == count( $columns ) ){
+                throw new RuntimeException( 'To use this entity, some column must have a value different of null' );
+            }
+
             return $columns;
         }
 

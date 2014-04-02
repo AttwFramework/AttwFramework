@@ -30,7 +30,7 @@
     
     use Attw\Attw\DB\Storage\StorageInterface;
     use Attw\DB\Storage\SqlStorageInterface;
-    use Attw\Entity\AbstractEntity;
+    use Attw\Model\Entity\AbstractEntity;
     use \PDO;
     use \RuntimeException;
     
@@ -84,6 +84,7 @@
             $columns = $entity->getColumns();
 
             $this->stmt = $this->storage->insert( $table, $columns );
+            return $this->stmt;
         }
         
         /**
@@ -137,6 +138,7 @@
             }
 
             $this->stmt = $this->storage->update( $table, $columns, $primaryKey );
+            return $this->stmt;
         }
 
         /**
@@ -155,6 +157,7 @@
             }
 
             $this->stmt = $this->storage->delete( $table, $columns );
+            return $this->stmt;
         }
 
         public function execute(){
