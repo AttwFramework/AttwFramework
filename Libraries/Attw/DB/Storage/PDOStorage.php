@@ -40,8 +40,6 @@
     
     /**
      * Storage with PDO
-     *
-     * @package FCodePHP.DB
     */
     class PDOStorage implements SqlStorageInterface{
         const FETCH_CLASS = PDO::FETCH_CLASS;
