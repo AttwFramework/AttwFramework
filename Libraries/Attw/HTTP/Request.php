@@ -99,34 +99,45 @@
         /**
          * Get a querystring requet
          *
-         * @param string $propriety
+         * @param string $property
          * @return mixed
         */
-        public function query( $propriety ){
+        public function query( $property ){
             $query = ( object ) $this->query;
-            return $query->{ $propriety };
+            return $query->{ $property };
         }
         
         /**
          * Get a post requet
          *
-         * @param string $propriety
+         * @param string $property
          * @return mixed
         */
-        public function post( $propriety ){
+        public function post( $property ){
             $post = ( object ) $this->post;
-            return $post->{ $propriety };
+            return $post->{ $property };
         }
         
         /**
-         * Get a server propriety
+         * Get a server property
          *
-         * @param string $propriety
+         * @param string $property
          * @return mixed
         */
-        public function server( $propriety ){
+        public function server( $property ){
             $server = ( object ) $this->server;
-            return $server->{ $propriety };
+            return $server->{ $property };
+        }
+
+        /**
+         * Get a file property
+         *
+         * @param string $property
+         * @return array
+        */
+        public function file( $property ){
+            $files = ( object ) $this->files;
+            return $files->{ $property };
         }
         
         /**
