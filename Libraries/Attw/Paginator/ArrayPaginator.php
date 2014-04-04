@@ -120,16 +120,18 @@
          * Paginate the array and set $this->slicedArray
         */
         private function createArrayPaginated(){
+            if( !is_null( $this->sort ) ){
+                if( $this->sort == self::SORT_ASC ){
+                    arsort( $this->data );
+                }elseif( $this->sort == self::SORT_DESC ){
+                    krsort( $this->data );
+                }
+            }
+            
             $currentIndex = ( $this->currentPage * $this->limit );
             $sliced = array_slice( $this->data, $currentIndex, $this->limit );
             
-            if( !is_null( $this->sort ) ){
-                if( $this->sort == self::SORT_ASC ){
-                    arsort( $sliced );
-                }elseif( $this->sort == self::SORT_DESC ){
-                    krsort( $sliced );
-                }
-            }
+            
             
             $this->slicedArray = $sliced;
         }
