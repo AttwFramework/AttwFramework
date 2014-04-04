@@ -173,10 +173,50 @@
          * @return boolean
         */
         public function isAjax(){
-            return ( isset( $this->server( 'HTTP_X_REQUESTED_WITH' ) ) 
+            return ( $this->issetServer( 'HTTP_X_REQUESTED_WITH' ) 
                     && strtolower( $this->server( 'HTTP_X_REQUESTED_WITH' ) ) === self::AJAX_METHOD );
         }
         
+        /**
+         * Verify if a post request exists
+         *
+         * @param string $property
+         * @return boolean
+        */
+        public function issetPost( $property ){
+            return isset( $this->post[ $property ] );
+        }
+
+        /**
+         * Verify if a querystring request exists
+         *
+         * @param string $property
+         * @return boolean
+        */
+        public function issetQuery( $property ){
+            return isset( $this->query[ $property ] );
+        }
+
+        /**
+         * Verify if a file request exists
+         *
+         * @param string $property
+         * @return boolean
+        */
+        public function issetFile( $property ){
+            return isset( $this->files[ $property ] );
+        }
+
+        /**
+         * Verify if a server request exists
+         *
+         * @param string $property
+         * @return boolean
+        */
+        public function issetServer( $property ){
+            return isset( $this->server[ $property ] );
+        }
+
         /**
          * Get the requet method
          *
