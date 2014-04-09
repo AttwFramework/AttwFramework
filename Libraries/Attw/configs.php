@@ -39,6 +39,24 @@
 	}
 
 	/**
+	 * Error logs
+	*/
+	if( Config::exists( 'Logs' ) ){
+		$logsConfig = Config::get( 'Logs' );
+
+		if( isset( $logsConfig['SystemErrorLogs'] ) ){
+			if( isset( $logsConfig['SystemErrorLogs']['Activated'] ) && $logsConfig['SystemErrorLogs']['Activated'] ){
+				if( !isset( $logsConfig['SystemErrorLogs']['File'] ) ){
+					throw new RuntimeException( 'To activate the system error logs, indicate the file to save logs' );
+				}
+				
+				ini_set( 'log_errors', true );
+				ini_set( 'error_log', $logsConfig['SystemErrorLogs']['File'] );
+			}
+		}
+	}
+
+	/**
 	 * Timezone
 	*/
 	if( Configs::exists( 'Timezone' ) ){
