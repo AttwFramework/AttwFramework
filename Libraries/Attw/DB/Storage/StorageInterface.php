@@ -31,41 +31,46 @@
     use Attw\DB\Storage\TransactionsInterface;
 
     /**
-	 * Interface to storages
-	 *
-	 * @package FCodePHP.DB
+     * Interface to storages
     */
     interface StorageInterface extends TransactionsInterface{
-    	/**
-		 * To insert something
-		 *
-		 * @param string $storageLocal local to inert
-		 * @param array $data data to insert
-    	*/
+        /**
+         * To insert something
+         *
+         * @param string $storageLocal local to inert
+         * @param array $data data to insert
+        */
         public function insert( $storageLocal, array $data );
 
         /**
-		 * To delete something
-		 *
-		 * @param string $storageLocal local to delete
-		 * @param array $where
+         * To delete something
+         *
+         * @param string $storageLocal local to delete
+         * @param array $where
         */
         public function delete( $storageLocal, array $where );
 
         /**
-		 * To update something
-		 *
-		 * @param string $storageLocal local to update
-		 * @param array $data data to set
-		 * @param array $where
+         * To update something
+         *
+         * @param string $storageLocal local to update
+         * @param array $data data to set
+         * @param array $where
         */
         public function update( $storageLocal, array $data, array $where );
 
         /**
-		 * To fetch something
-		 *
-		 * @param string $storageLocal local to update
-		 * @param string | array data to fetch
+         * To fetch something
+         *
+         * @param string $storageLocal local to update
+         * @param string | array data to fetch
         */
         public function select( $storageLocal, $data = '*' );
+
+        /**
+         * To count results
+         *
+         * @return integer
+        */
+        public function count();
     }
