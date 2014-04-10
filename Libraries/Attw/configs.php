@@ -41,8 +41,8 @@
 	/**
 	 * Error logs
 	*/
-	if( Config::exists( 'Logs' ) ){
-		$logsConfig = Config::get( 'Logs' );
+	if( Configs::exists( 'Logs' ) ){
+		$logsConfig = Configs::get( 'Logs' );
 
 		if( isset( $logsConfig['SystemErrorLogs'] ) ){
 			if( isset( $logsConfig['SystemErrorLogs']['Activated'] ) && $logsConfig['SystemErrorLogs']['Activated'] ){
