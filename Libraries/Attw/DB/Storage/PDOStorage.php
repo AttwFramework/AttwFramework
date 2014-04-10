@@ -218,4 +218,13 @@
         public function lastInsertId(){
             return $this->pdo->lastInsertId();
         }
+
+        /**
+         * Return number of results
+         *
+         * @return integer
+        */
+        public function count(){
+            return $this->stmt->count();
+        }
     }

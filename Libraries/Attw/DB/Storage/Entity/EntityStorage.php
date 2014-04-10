@@ -140,7 +140,19 @@
             return $this->stmt;
         }
 
+        /**
+         * Execute a prepared statement
+         *
+         * @return \PDOStatement::execute()
+        */
         public function execute(){
             return $this->stmt->execute();
+        }
+
+        /**
+         * Return number of results
+        */
+        public function count(){
+            return $this->stmt->count();
         }
     }
