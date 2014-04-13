@@ -25,7 +25,7 @@
 					<div id="database" class="section">
 						<div class="title"><span style="font-size: 26px;">Database configurations</span></div>
 						<div class="description">To configurate the database, define a default connection in <span style="font-family: monospace; white-space: pre;">Application/Configurations/db_connections.php</span>.</div>
-						<div class="title" style="margin-top: 10px;"><span style="font-size: 22px;">Exmaple</span></div>
+						<div class="title" style="margin-top: 10px;"><span style="font-size: 22px;">Example</span></div>
 						<pre class="php">
 	use Attw\DB\Connection\MySQLConnectorConfig;
 	use Attw\DB\Connection\PDOConnector;

@@ -1,5 +1,4 @@
 templates_c/
 tmp/
 cache/
-Application/err-log.txt
-.gitignore
+Application/err-logs.txt
