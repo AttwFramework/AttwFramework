@@ -1,4 +1,0 @@
-[13-Apr-2014 06:21:28 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\Workspace\var\www\AttwFramework\Libraries\Attw\HTTP\Response.php on line 202
-[13-Apr-2014 06:21:46 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\Workspace\var\www\AttwFramework\Libraries\Attw\HTTP\Response.php on line 202
-[13-Apr-2014 06:22:03 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\Workspace\var\www\AttwFramework\Libraries\Attw\HTTP\Response.php on line 202
-[13-Apr-2014 06:22:38 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\Workspace\var\www\AttwFramework\Libraries\Attw\HTTP\Response.php on line 202
