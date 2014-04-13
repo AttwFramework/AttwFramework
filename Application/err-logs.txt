@@ -1,3 +1,0 @@
-[13-Apr-2014 06:46:50 UTC] PHP Fatal error:  Class 'MVC\Controller\Application' not found in C:\Workspace\var\www\AttwFramework\Libraries\Attw\Application\Application.php on line 64
-[13-Apr-2014 06:46:50 UTC] PHP Fatal error:  Class 'MVC\Controller\Application' not found in C:\Workspace\var\www\AttwFramework\Libraries\Attw\Application\Application.php on line 64
-[13-Apr-2014 06:46:50 UTC] PHP Fatal error:  Class 'MVC\Controller\Application' not found in C:\Workspace\var\www\AttwFramework\Libraries\Attw\Application\Application.php on line 64
