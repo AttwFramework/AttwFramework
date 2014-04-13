@@ -20,10 +20,10 @@
     spl_autoload_register(array($autoLoad, 'loadApp'));
     spl_autoload_register(array($autoLoad, 'loadCore'));*/
 
-    require_once LIBS . DS . 'Attw\Autoloader\Autoloader.php';
-    require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\iAutloadable.php';
-    require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\Application.php';
-    require_once LIBS . DS . 'Attw\Autoloader\Autoloadable\Attw.php';
+    require_once LIBS . DS . 'Attw'. DS . 'Autoloader'. DS . 'Autoloader.php';
+    require_once LIBS . DS . 'Attw'. DS . 'Autoloader'. DS . 'Autoloadable'. DS . 'iAutloadable.php';
+    require_once LIBS . DS . 'Attw'. DS . 'Autoloader'. DS . 'Autoloadable'. DS . 'Application.php';
+    require_once LIBS . DS . 'Attw'. DS . 'Autoloader'. DS . 'Autoloadable'. DS . 'Attw.php';
    
     $libs = array(
         'Smarty' => LIBS . DS . 'Smarty' . DS . 'libs' . DS . 'Smarty.class.php'
