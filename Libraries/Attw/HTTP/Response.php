@@ -199,7 +199,7 @@
                                                         $statusCode, 
                                                         $this->messages[ $statusCode ] ) );
             }else{
-                $this->sendHeader( sprintf( '%s %s', $this->protocol, $statusCode );
+                $this->sendHeader( sprintf( '%s %s', $this->protocol, $statusCode ) );
             }
         }
     }

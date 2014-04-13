@@ -3,13 +3,13 @@
 	<head>
 		<title>AttwFramework</title>
 		
-		<link rel="stylesheet" href="Application/Public/css/main.css" type="text/css" />
-		<link rel="favicon" href="Application/Public/images/logo2.ico" />
+		<link rel="stylesheet" href="public/css/main.css" type="text/css" />
+		<link rel="favicon" href="public/images/logo2.ico" />
 	</head>
 	<body>
 		<header>
 			<div class="logo">
-				<img src="Application/Public/images/AF-logo1.png" width="250px" />
+				<img src="public/images/AF-logo1.png" width="250px" />
 			</div>
 			<div class="right">
 				
