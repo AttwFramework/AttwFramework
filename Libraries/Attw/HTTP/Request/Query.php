@@ -44,7 +44,7 @@
          * @param array $fields Fields of request
         */
         public function __construct( $url, array $fields = array() ){
-            $this->url = $url;
+            $this->url = ( substr( $url, -1 ) == '/' ) ? $url : $url . '/';
             $this->fields = $fields;
         }
         
@@ -55,13 +55,7 @@
         */
         private function getFinalUrl(){
             if( count( $this->fields ) > 0 ){
-                foreach( $this->fields as $key => $value ){
-                    $fields[] = $key . '=' . $value;
-                }
-                
-                $fields = implode( '&', $fields );
-                
-                $finalUrl = $this->url . '?' . $fields;
+                $finalUrl = $this->url . '?' . http_build_query( $this->fields );
                 
                 return $finalUrl;
             }

@@ -55,12 +55,8 @@
          * @return string Fields string
         */
         private function getFieldsString(){
-            foreach( $this->fields as $key => $value ){
-                $fieldsString[] = $key . '=' . $value;
-            }
-            
-            $fieldsString = implode( '&', $fieldsString );
-            
+            $fieldsString = http_build_query( $this->fields );
+
             return $fieldsString;
         }
         
