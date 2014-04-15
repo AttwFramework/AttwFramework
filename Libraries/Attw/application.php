@@ -26,10 +26,10 @@
      * @since AttwFramework v1.0
     */
  
-    require_once 'Config/dir_defines.php';
-    require_once 'Config/autoload.php';
-    require_once 'Application/Configurations.php';
-    require_once 'Application/Configurations/routes.php';
+    require_once 'Config' . DIRECTORY_SEPARATOR . 'dir_defines.php';
+    require_once 'Config' . DS . 'autoload.php';
+    require_once 'Application' . DS . 'Configurations.php';
+    require_once 'Application' . DS . 'Configurations' . DS . 'routes.php';
     require_once LIBS . DS . 'Attw' . DS . 'configs.php';
     
     use Attw\Application\Application;
