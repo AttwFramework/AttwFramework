@@ -5,15 +5,15 @@
 		
 		<link rel="stylesheet" href="public/css/main.css" type="text/css" />
 
-		<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
-		<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+		<link rel="stylesheet" href="public/css/highlightjs.min.css">
+		<script src="public/js/highlight.min.js"></script>
 		<script>
 			window.onload = function() {
-    var aCodes = document.getElementsByTagName('pre');
-    for (var i=0; i < aCodes.length; i++) {
-        hljs.highlightBlock(aCodes[i]);
-    }
-};
+		    	var aCodes = document.getElementsByTagName('pre');
+			    for (var i=0; i < aCodes.length; i++) {
+			        hljs.highlightBlock(aCodes[i]);
+			    }
+			};
 		</script>
 	</head>
 	<body>
