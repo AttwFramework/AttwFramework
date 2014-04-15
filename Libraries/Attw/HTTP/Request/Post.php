@@ -29,7 +29,7 @@
     namespace Attw\HTTP\Request;
     
     use Attw\HTTP\Request\iRequest;
-    use \Exception;
+    use \RuntimeException;
     
     /**
      * Create a post request
@@ -77,7 +77,7 @@
             $return = curl_exec( $ch );
             
             if( !$return ){
-                throw new Exception( 'An error occurred with the request: ' . curl_error( $ch ) );
+                throw new RuntimeException( 'An error occurred with the request: ' . curl_error( $ch ) );
             }
             
             curl_close( $ch );
