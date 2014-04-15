@@ -4,7 +4,17 @@
 		<title>AttwFramework</title>
 		
 		<link rel="stylesheet" href="public/css/main.css" type="text/css" />
-		<link rel="favicon" href="public/images/logo2.ico" />
+
+		<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+		<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+		<script>
+			window.onload = function() {
+    var aCodes = document.getElementsByTagName('pre');
+    for (var i=0; i < aCodes.length; i++) {
+        hljs.highlightBlock(aCodes[i]);
+    }
+};
+		</script>
 	</head>
 	<body>
 		<header>
@@ -26,16 +36,16 @@
 						<div class="title"><span style="font-size: 26px;">Database configurations</span></div>
 						<div class="description">To configurate the database, define a default connection in <span style="font-family: monospace; white-space: pre;">Application/Configurations/db_connections.php</span>.</div>
 						<div class="title" style="margin-top: 10px;"><span style="font-size: 22px;">Example</span></div>
-						<pre class="php">
-	use Attw\DB\Connection\MySQLConnectorConfig;
-	use Attw\DB\Connection\PDOConnector;
-	use Attw\DB\Collection;
+						<pre>
+use Attw\DB\Connection\MySQLConnectorConfig;
+use Attw\DB\Connection\PDOConnector;
+use Attw\DB\Collection;
 							
-	$connector_config = new MySQLConnectorConfig( 'localhost', 'test', 'root', '' );
-	$connector = new PDOConnector( $connector_config );
+$connector_config = new MySQLConnectorConfig( 'localhost', 'test', 'root', '' );
+$connector = new PDOConnector( $connector_config );
 							
-	Collection::add( 'Default', $connector );
-						</pre>
+Collection::add( 'Default', $connector );
+</pre>
 					</div>
 					<div class="section" id="others">
 						<div class="title"><span style="font-size: 26px;">Other configurations</span></div>
