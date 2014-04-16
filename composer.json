@@ -1,0 +1,23 @@
+{
+    "name": "attwframework/attwframework",
+    "description": "It is a open source MVC micro-framework for PHP 5.3+",
+    "authors": [
+        {
+            "name": "Gabriel Jacinto",
+            "email": "gamjj74@hotmail.com"
+        }
+    ],
+    "license": "MIT",
+    "homepage": "http://attwframework.github.io",
+    "type": "library",
+    "keywords": ["framework"],
+    "require": {
+        "php": ">=5.3.0",
+        "curl/curl": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Attw": "Libraries/"
+        }
+    }
+}
